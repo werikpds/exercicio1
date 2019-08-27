@@ -6,7 +6,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Veiculo {
-	//Teste com merge
+	//Teste com merge 222
 	@Id
 	@GeneratedValue
 	private Long id;
