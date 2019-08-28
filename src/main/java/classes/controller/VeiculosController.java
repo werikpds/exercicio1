@@ -2,12 +2,20 @@ package classes.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import classes.model.Veiculo;
+import classes.repository.VeiculosRepository;
 
 @Controller
 public class VeiculosController {
+	VeiculosRepository veiculosRepo;
 	
 	@GetMapping("/lista")
-	public String hello() {
-		return "lista_veiculos";
+	public ModelAndView hello() {
+		ModelAndView mv = new ModelAndView("lista_veiculos");
+		java.util.List<Veiculo> veiculos = veiculosRepo.findAll();
+		mv.addObject("veiculos", veiculos);
+		return mv;
 	}
 }

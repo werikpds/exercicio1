@@ -11,6 +11,30 @@
 	rel="stylesheet" />
 </head>
 <body>
-	<h1>Hello Spring Boot!</h1>
+	<div class="panel panel-default" style="margin: 10px">
+		<div class="panel-heading">
+			<h1 class="panel-title">Veiculos</h1>
+		</div>
+		<div class="panel-body">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Modelo</th>
+						<th>Marca</th>
+						<th>Cor</th>
+						<th>Ano</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="veiculo : ${veiculos}">
+						<td th:text="${veiculo.modelo}"></td>
+						<td th:text="${veiculo.marca}"></td>
+						<td th:text="${veiculo.cor}"></td>
+						<td th:text="${veiculo.anoFabricacao}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </body>
 </html>

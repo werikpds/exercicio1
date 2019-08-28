@@ -11,7 +11,7 @@ public class Veiculo {
 	@GeneratedValue
 	private Long id;
 	private String modelo, marca, cor;
-	private int anoFabiracacao;
+	private int anoFabricacao;
 	
 	public Long getId() {
 		return id;
@@ -37,11 +37,11 @@ public class Veiculo {
 	public void setCor(String cor) {
 		this.cor = cor;
 	}
-	public int getAnoFabiracacao() {
-		return anoFabiracacao;
+	public int getAnoFabricacao() {
+		return anoFabricacao;
 	}
-	public void setAnoFabiracacao(int anoFabiracacao) {
-		this.anoFabiracacao = anoFabiracacao;
+	public void setAnoFabricacao(int anoFabricacao) {
+		this.anoFabricacao = anoFabricacao;
 	}
 	
 	
