@@ -10,6 +10,17 @@
 <link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}"
 	rel="stylesheet" />
 </head>
+<form class="form-inline" method="POST" th:object="${veiculo}" th:action= "@{/lista}" style="margin: 20px 0">
+	<div class="panel panel-default" style="margin: 10px">
+		<div class="form-group">
+			<input type="text" class="form-control" placeholder="Modelo" th:field="*{modelo}" /> 
+			<input type="text" class="form-control" placeholder="Marca"  th:field="*{marca}"/>
+			<input type="text" class="form-control" placeholder="Cor"    th:field="*{cor}"/>
+			<input type="number" class="form-control" placeholder="Ano"  th:field="*{anoFabricacao}"/>
+			<button type="submit" class="btn btn-primary">Adicionar</button>
+		</div>
+	</div>
+</form>
 <body>
 	<div class="panel panel-default" style="margin: 10px">
 		<div class="panel-heading">
