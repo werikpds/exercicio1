@@ -19,8 +19,8 @@ public class VeiculosController {
 	public ModelAndView hello() {
 		ModelAndView mv = new ModelAndView("lista_veiculos");
 		java.util.List<Veiculo> veiculos = veiculosRepo.findAll();
-		mv.addObject("veiculos", veiculos);
 		mv.addObject(new Veiculo());
+		mv.addObject("veiculos", veiculos);
 		return mv;
 	}
 	
