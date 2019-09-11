@@ -12,6 +12,7 @@ public class Veiculo {
 	private Long id;
 	private String modelo, marca, cor;
 	private int anoFabricacao;
+	private double mediaKM, litrosTanque, autonomia;
 	
 	public Long getId() {
 		return id;
@@ -43,6 +44,23 @@ public class Veiculo {
 	public void setAnoFabricacao(int anoFabricacao) {
 		this.anoFabricacao = anoFabricacao;
 	}
-	
-	
+	public double getMediaKM() {
+		return mediaKM;
+	}
+	public void setMediaKM(double mediaKM) {
+		this.mediaKM = mediaKM;
+	}
+	public double getLitrosTanque() {
+		return litrosTanque;
+	}
+	public void setLitrosTanque(double litrosTanque) {
+		this.litrosTanque = litrosTanque;
+	}
+	public double getAutonomia() {
+		return autonomia;
+	}
+	public void setAutonomia(double autonomia) {
+		this.autonomia = autonomia;
+	}
+
 }

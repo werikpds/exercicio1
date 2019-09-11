@@ -13,10 +13,12 @@
 <form class="form-inline" method="POST" th:object="${veiculo}" th:action= "@{/lista}" style="margin: 20px 0">
 	<div class="panel panel-default" style="margin: 10px">
 		<div class="form-group">
-			<input type="text" class="form-control" placeholder="Modelo" th:field="*{modelo}" /> 
-			<input type="text" class="form-control" placeholder="Marca"  th:field="*{marca}"/>
-			<input type="text" class="form-control" placeholder="Cor"    th:field="*{cor}"/>
-			<input type="number" class="form-control" placeholder="Ano"  th:field="*{anoFabricacao}"/>
+			<input type="text" class="form-control" placeholder="Modelo" 				th:field="*{modelo}" /> 
+			<input type="text" class="form-control" placeholder="Marca"  				th:field="*{marca}"/>
+			<input type="text" class="form-control" placeholder="Cor"    				th:field="*{cor}"/>
+			<input type="text" class="form-control" placeholder="Ano"  					th:field="*{anoFabricacao}"/>
+			<input type="text" class="form-control" placeholder="Media km/l" 			th:field="*{mediaKM}"/>
+			<input type="text" class="form-control" placeholder="Restante no tanque" 	th:field="*{litrosTanque}"/>
 			<button type="submit" class="btn btn-primary">Adicionar</button>
 		</div>
 	</div>
@@ -34,6 +36,9 @@
 						<th>Marca</th>
 						<th>Cor</th>
 						<th>Ano</th>
+						<th>Média km/l</th>
+						<th>Restante em l</th>
+						<th>Autonomia Atual</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -42,6 +47,9 @@
 						<td th:text="${veiculo.marca}"></td>
 						<td th:text="${veiculo.cor}"></td>
 						<td th:text="${veiculo.anoFabricacao}"></td>
+						<td th:text="${veiculo.mediaKM}"></td>
+						<td th:text="${veiculo.litrosTanque}"></td>
+						<td th:text="${veiculo.autonomia}"></td>
 					</tr>
 				</tbody>
 			</table>

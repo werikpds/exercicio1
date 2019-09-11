@@ -8,17 +8,26 @@ import org.springframework.web.servlet.ModelAndView;
 
 import classes.model.Veiculo;
 import classes.repository.VeiculosRepository;
+import classes.service.VeiculosService;
 
 @Controller
 public class VeiculosController {
 	
+	//@Autowired
+	private VeiculosRepository veiculosRepo;
+	
 	@Autowired
-	VeiculosRepository veiculosRepo;
+	private VeiculosService veicService;
+	
+	@Autowired
+	public VeiculosController(VeiculosRepository veicRepo){
+		this.veiculosRepo = veicRepo;
+	}
 	
 	@GetMapping("/lista")
 	public ModelAndView hello() {
 		ModelAndView mv = new ModelAndView("lista_veiculos");
-		java.util.List<Veiculo> veiculos = veiculosRepo.findAll();
+		java.util.List<Veiculo> veiculos = veicService.listarTodos();
 		mv.addObject(new Veiculo());
 		mv.addObject("veiculos", veiculos);
 		return mv;
@@ -27,12 +36,25 @@ public class VeiculosController {
 	@PostMapping("/lista")
 	public String salvar (Veiculo veiculo) {
 		veiculo.setId((long) 0);
-		java.util.List<Veiculo> veiculos = veiculosRepo.findAll();
+		java.util.List<Veiculo> veiculos = veicService.listarTodos();
 		for(int i = 0; i < veiculos.size(); i++) {
 			if(veiculos.get(i).getId() > veiculo.getId()) veiculo.setId(veiculos.get(i).getId());
 			else veiculo.setId(veiculo.getId()+1);
 		}
-		veiculosRepo.save(veiculo);
+		veicService.salvar(veiculo);
 		return "redirect:/lista";
+	}
+	
+	
+	@Autowired
+	public VeiculosRepository getVeiculosRepo() {
+		return veiculosRepo;
+	}
+
+	@Autowired
+	public void setVeiculosRepo(VeiculosRepository veiculosRepo) {
+		this.veiculosRepo = veiculosRepo;
 	} 
+	
+	
 }
